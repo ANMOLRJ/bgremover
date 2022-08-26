@@ -56,7 +56,7 @@ def bgrevomer(input_name):
 def image(n):
     outputName = n.split('.')[0]
     outputName = outputName.replace(" ", "-")
-    output_path = f'static\\image\\edit_bg\\{outputName}.png'
+    output_path = f'static\\image\\edit_bg\\12.png'
     #output_path = output_path.replace("\\\\", "\\")
     #return {"file_name": output_path, "status": 200}
     return render_template("image.html", outpath=output_path)
