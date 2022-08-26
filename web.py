@@ -1,7 +1,7 @@
 import json
 import os
 from flask import Flask, redirect, url_for, render_template, request, flash
-from rembg import remove
+#from rembg import remove
 from PIL import Image
 from werkzeug.utils import secure_filename
 
@@ -48,7 +48,7 @@ def bgrevomer(input_name):
     input_path = os.path.join(UPLOAD_FOLDER,Name)
     output_path = f'static\image\edit_bg\{outputName}.png'
     input = Image.open(input_path)
-    output = remove(input)
+    output = output #remove(input)
     output.save(output_path)
 
 
@@ -63,4 +63,4 @@ def image(n):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=False)
