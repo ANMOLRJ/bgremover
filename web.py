@@ -1,7 +1,7 @@
 import json
 import os
 from flask import Flask, redirect, url_for, render_template, request, flash
-#from rembg import remove
+from rembg import remove
 from PIL import Image
 from werkzeug.utils import secure_filename
 
@@ -11,7 +11,7 @@ ALLOWED_EXTENSIONS = { 'jpg', 'jpeg', 'jfif','png','webp'}
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 
-@app.route("/login", methods=["POST", "GET"])
+@app.route("/", methods=["POST", "GET"])
 def login():
     if request.method == "POST":
         imgInput = upload_file()
@@ -48,7 +48,7 @@ def bgrevomer(input_name):
     input_path = os.path.join(UPLOAD_FOLDER,Name)
     output_path = f'static\image\edit_bg\{outputName}.png'
     input = Image.open(input_path)
-    output = output #remove(input)
+    output = remove(input)
     output.save(output_path)
 
 
